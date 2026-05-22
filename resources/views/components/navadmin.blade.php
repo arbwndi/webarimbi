@@ -13,6 +13,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/users">users</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/products">products</a>
+                </li>
             </ul>
         </div>
     </div>

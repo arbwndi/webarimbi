@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController; // ← TAMBAH INI
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () { return view('home'); });
@@ -27,4 +28,9 @@ Route::middleware('auth')->group(function () {
 Route::controller(LoginController::class)->group(function () {
     Route::get('login', 'showLoginForm')->name('login');
     Route::post('login', 'loginUser')->name('login.process'); // ← ganti nama
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('products', ProductController::class)
+         ->only(['index', 'store', 'update', 'destroy']);
 });
