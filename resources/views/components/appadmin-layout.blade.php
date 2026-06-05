@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.products.index') }}">Products</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.customers.index') }}">Customers</a>
+                    </li>
                 </ul>
             </div>
         </div>
