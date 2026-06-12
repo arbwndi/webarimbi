@@ -27,6 +27,7 @@
                             <th>Nama Barang</th>
                             <th>Satuan</th>
                             <th>Harga</th>
+                            <th>Kategori</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -40,8 +41,9 @@
                                 <span class="badge bg-info text-dark">{{ $product->satuan }}</span>
                             </td>
                             <td>Rp {{ number_format($product->harga, 0, ',', '.') }}</td>
+                            <td>{{ $product->category->nama_kategori ?? '-' }}</td>
                             <td>
-                                <button onclick="openEdit({{ $product->id }}, '{{ $product->kode_barang }}', '{{ addslashes($product->nama_barang) }}', '{{ $product->satuan }}', '{{ $product->harga }}')"
+                                <button onclick="openEdit({{ $product->id }}, '{{ $product->kode_barang }}', '{{ addslashes($product->nama_barang) }}', '{{ $product->satuan }}', '{{ $product->harga }}', {{ $product->category_id ?? 'null' }})"
                                     class="btn btn-sm btn-warning">
                                     ✏️ Edit
                                 </button>
@@ -57,7 +59,7 @@
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="6" class="text-center text-muted py-4">
+                            <td colspan="7" class="text-center text-muted py-4">
                                 Belum ada data produk. Klik "Tambah Produk" untuk memulai.
                             </td>
                         </tr>
@@ -106,13 +108,14 @@
     function hideModal(id) {
         document.getElementById(id).style.display = 'none';
     }
-    function openEdit(id, kode, nama, satuan, harga) {
+    function openEdit(id, kode, nama, satuan, harga, categoryId) {
         const form = document.getElementById('formEdit');
         form.action = '/admin/products/' + id;
         form.querySelector('[name=kode_barang]').value = kode;
         form.querySelector('[name=nama_barang]').value = nama;
         form.querySelector('[name=satuan]').value = satuan;
         form.querySelector('[name=harga]').value = harga;
+        form.querySelector('[name=category_id]').value = categoryId ?? '';
         showModal('modalEdit');
     }
     ['modalTambah', 'modalEdit'].forEach(id => {
