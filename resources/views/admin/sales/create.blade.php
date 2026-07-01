@@ -1,0 +1,12 @@
+<x-app-admin>
+    <div class="container mt-5">
+        <h1>Create Sale</h1>
+        @include('admin.sales._form', [
+            'action' => route('sales.store'),
+            'method' => 'POST',
+            'buttonLabel' => 'Create Sale',
+            'customers' => $customers,
+            'products' => $products,
+        ])
+    </div>
+</x-app-admin>
