@@ -1,4 +1,4 @@
-<x-app-admin>
+<x-appadmin-layout>
     <div class="container mt-5">
         <h1>Edit Sale</h1>
         @include('admin.sales._form', [
@@ -10,4 +10,4 @@
             'products' => $products,
         ])
     </div>
-</x-app-admin>
+</x-appadmin-layout>

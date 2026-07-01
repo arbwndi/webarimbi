@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () { return view('home'); });
@@ -38,4 +39,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::resource('customers', CustomerController::class);
     Route::resource('categories', CategoryController::class);
+});
+
+// Sales dipisah dari group name('admin.') agar nama route-nya tetap "sales.*"
+// (bukan "admin.sales.*"), sesuai dengan yang dipakai di semua view sales.
+Route::prefix('admin')->group(function () {
+    Route::resource('sales', SaleController::class);
 });

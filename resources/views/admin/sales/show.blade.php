@@ -1,4 +1,4 @@
-<x-app-admin>
+<x-appadmin-layout>
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <div>
@@ -48,4 +48,4 @@
             </tbody>
         </table>
     </div>
-</x-app-admin>
+</x-appadmin-layout>

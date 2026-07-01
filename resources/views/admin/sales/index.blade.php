@@ -1,4 +1,4 @@
-<x-app-admin>
+<x-appadmin-layout>
     <div class="container mt-5">
         <h1>Sales</h1>
         <p>Daftar transaksi penjualan</p>
@@ -38,4 +38,4 @@
             </tbody>
         </table>
     </div>
-</x-app-admin>
+</x-appadmin-layout>
