@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <strong>Customer</strong>
-                        <div>{{ $sale->customer?->nama }}</div>
+                        <div>{{ $sale->customer?->nama_customer }}</div>
                     </div>
                     <div class="col-md-4">
                         <strong>Tanggal</strong>
@@ -39,7 +39,7 @@
             <tbody>
                 @foreach ($sale->items as $item)
                     <tr>
-                        <td>{{ $item->product?->nama }}</td>
+                        <td>{{ $item->product?->nama_barang }}</td>
                         <td>Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                         <td>{{ $item->qty }}</td>
                         <td>Rp {{ number_format($item->subtotal, 0, ',', '.') }}</td>

@@ -24,6 +24,7 @@ class ProductController extends Controller
             'satuan'        => 'required',
             'harga'         => 'required|numeric|min:0',
             'category_id'   => 'nullable|exists:categories,id',
+            'stok'          => 'required|integer|min:0',
         ]);
 
         Product::create($request->only('kode_barang', 'nama_barang', 'satuan', 'harga', 'category_id'));

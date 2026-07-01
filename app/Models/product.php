@@ -12,6 +12,7 @@ class Product extends Model
         'satuan',
         'harga',
         'category_id',
+        'stok',
     ];
 
     public function category()

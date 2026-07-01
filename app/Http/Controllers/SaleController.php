@@ -24,8 +24,8 @@ class SaleController extends Controller
     public function create()
     {
         return view('admin.sales.create', [
-            'customers' => Customer::orderBy('nama', 'asc')->get(),
-            'products' => Product::orderBy('nama', 'asc')->get(),
+            'customers' => Customer::orderBy('nama_customer', 'asc')->get(),
+            'products' => Product::orderBy('nama_barang', 'asc')->get(),
         ]);
     }
 
@@ -89,8 +89,8 @@ class SaleController extends Controller
 
         return view('admin.sales.edit', [
             'sale' => $sale,
-            'customers' => Customer::orderBy('nama', 'asc')->get(),
-            'products' => Product::orderBy('nama', 'asc')->get(),
+            'customers' => Customer::orderBy('nama_customer', 'asc')->get(),
+            'products' => Product::orderBy('nama_barang', 'asc')->get(),
         ]);
     }
 

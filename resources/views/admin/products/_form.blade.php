@@ -59,3 +59,12 @@
         @enderror
     </div>
 </div>
+
+<div class="mb-3 mt-3">
+    <label class="form-label">Stok</label>
+    <input name="stok" type="number" min="0"
+        value="{{ old('stok') }}"
+        class="form-control" placeholder="0">
+    @error('stok')
+        <div class="text-danger small mt-1">{{ $message }}</div>
+    @enderror

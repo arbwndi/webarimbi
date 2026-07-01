@@ -20,7 +20,7 @@
                     <tr>
                         <td>{{ $sale->id }}</td>
                         <td>{{ $sale->kode }}</td>
-                        <td>{{ $sale->customer?->nama }}</td>
+                        <td>{{ $sale->customer?->nama_customer }}</td>
                         <td>{{ $sale->sale_date?->format('d M Y') }}</td>
                         <td>Rp {{ number_format($sale->total_amount, 0, ',', '.') }}</td>
                         <td>{{ $sale->items->count() }}</td>

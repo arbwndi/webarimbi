@@ -25,7 +25,7 @@
             <option value="">Pilih Customer</option>
             @foreach ($customers as $customer)
                 <option value="{{ $customer->id }}" @selected((string) $selectedCustomerId === (string) $customer->id)>
-                    {{ $customer->kode }} - {{ $customer->nama }}
+                    {{ $customer->kode_customer }} - {{ $customer->nama_customer }}
                 </option>
             @endforeach
         </select>
@@ -57,7 +57,7 @@
                         <option value="">Pilih Produk</option>
                         @foreach ($products as $product)
                             <option value="{{ $product->id }}" @selected((string) ($item['product_id'] ?? '') === (string) $product->id)>
-                                {{ $product->nama }} - Rp {{ number_format($product->harga, 0, ',', '.') }} (Stok: {{ $product->stok }})
+                                {{ $product->nama_barang }} - Rp {{ number_format($product->harga, 0, ',', '.') }} (Stok: {{ $product->stok }})
                             </option>
                         @endforeach
                     </select>
@@ -81,7 +81,7 @@
                     <option value="">Pilih Produk</option>
                     @foreach ($products as $product)
                         <option value="{{ $product->id }}">
-                            {{ $product->nama }} - Rp {{ number_format($product->harga, 0, ',', '.') }} (Stok: {{ $product->stok }})
+                            {{ $product->nama_barang }} - Rp {{ number_format($product->harga, 0, ',', '.') }} (Stok: {{ $product->stok }})
                         </option>
                     @endforeach
                 </select>
