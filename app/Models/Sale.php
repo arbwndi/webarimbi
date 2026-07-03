@@ -15,6 +15,10 @@ class Sale extends Model
         'total_amount',
     ];
 
+    protected $casts = [
+        'sale_date' => 'date', // ← tambah ini
+    ];
+
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class);

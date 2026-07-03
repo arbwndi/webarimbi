@@ -28,7 +28,6 @@
                             <th>Satuan</th>
                             <th>Harga</th>
                             <th>Kategori</th>
-                            <th>Stok</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -43,9 +42,8 @@
                             </td>
                             <td>Rp {{ number_format($product->harga, 0, ',', '.') }}</td>
                             <td>{{ $product->category->nama_kategori ?? '-' }}</td>
-                            <td>{{ $product->stok }}</td>
                             <td>
-                                <button onclick="openEdit({{ $product->id }}, '{{ $product->kode_barang }}', '{{ addslashes($product->nama_barang) }}', '{{ $product->satuan }}', '{{ $product->harga }}', {{ $product->category_id ?? 'null' }}, {{ $product->stok }}  )"
+                                <button onclick="openEdit({{ $product->id }}, '{{ $product->kode_barang }}', '{{ addslashes($product->nama_barang) }}', '{{ $product->satuan }}', '{{ $product->harga }}', {{ $product->category_id ?? 'null' }},"
                                     class="btn btn-sm btn-warning">
                                     ✏️ Edit
                                 </button>
@@ -110,7 +108,7 @@
     function hideModal(id) {
         document.getElementById(id).style.display = 'none';
     }
-    function openEdit(id, kode, nama, satuan, harga, categoryId) {
+    function openEdit(id, kode, nama, satuan, harga, categoryId, ) {
         const form = document.getElementById('formEdit');
         form.action = '/admin/products/' + id;
         form.querySelector('[name=kode_barang]').value = kode;
@@ -118,7 +116,6 @@
         form.querySelector('[name=satuan]').value = satuan;
         form.querySelector('[name=harga]').value = harga;
         form.querySelector('[name=category_id]').value = categoryId ?? '';
-        form.querySelector('[name=stok]').value = form.dataset.stok || 0; // Set stok value if needed
         showModal('modalEdit');
     }
     ['modalTambah', 'modalEdit'].forEach(id => {

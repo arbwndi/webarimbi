@@ -57,7 +57,7 @@
                         <option value="">Pilih Produk</option>
                         @foreach ($products as $product)
                             <option value="{{ $product->id }}" @selected((string) ($item['product_id'] ?? '') === (string) $product->id)>
-                                {{ $product->nama_barang }} - Rp {{ number_format($product->harga, 0, ',', '.') }} (Stok: {{ $product->stok }})
+                                {{ $product->nama_barang }} - Rp {{ number_format($product->harga, 0, ',', '.') }}
                             </option>
                         @endforeach
                     </select>
@@ -81,7 +81,7 @@
                     <option value="">Pilih Produk</option>
                     @foreach ($products as $product)
                         <option value="{{ $product->id }}">
-                            {{ $product->nama_barang }} - Rp {{ number_format($product->harga, 0, ',', '.') }} (Stok: {{ $product->stok }})
+                            {{ $product->nama_barang }} - Rp {{ number_format($product->harga, 0, ',', '.') }}
                         </option>
                     @endforeach
                 </select>
